@@ -47,15 +47,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $dealer->hit();
         } while ($dealer->totalValue < $player->totalValue);
 
+        
+
         // SURRENDER
     } else if ($_POST['submit'] == 2) {
         if (!isset($_SESSION['player'])) {
             $player = new Blackjack();
             $_SESSION['player'] = $player;
         } else {
-            $player = $_SESSION['player'];
+            unset($_SESSION['player']);
+            $player = new Blackjack();
+            $_SESSION['player'] = $player;
         }
-
+//        unset($_SESSION['player']);
     }
 
 } else {
@@ -63,6 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $player = new Blackjack();
         $_SESSION['player'] = $player;
     } else {
-        $player = $_SESSION['player'];
+        unset($_SESSION['player']);
+        $player = new Blackjack();
+        $_SESSION['player'] = $player;
     }
 }
