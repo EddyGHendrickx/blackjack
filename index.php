@@ -16,7 +16,7 @@ require 'controller.php';
         </div>
     <?php endforeach; ?>
     <div>
-        <p><?php echo $player->totalValue; ?></p>
+        <p><strong> <?php echo $player->totalValue; ?></strong></p>
     </div>
 
     <p>-----------------------------------------------------------</p>
@@ -30,12 +30,15 @@ require 'controller.php';
             <div>
                 <p><?php echo $card ?></p>
             </div>
-        <?php endforeach; } ?>
+        <?php endforeach; ?>
+    <div>
+        <p><strong> <?php echo $dealer->totalValue; } ?></strong></p>
+    </div>
 
     <form method='post'>
         <button name='submit' value='0'<?php echo $player->enable ?? ""; ?>>HIT ME</button>
         <button name='submit' value='1'<?php echo $player->enable ?? ""; ?>>STAND</button>
-        <button name='submit' value='2'>SURRENDER</button>
+        <button name='submit' value='2'>NEW GAME</button>
     </form>
 </head>
 <body>

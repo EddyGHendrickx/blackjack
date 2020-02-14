@@ -20,8 +20,8 @@ class Blackjack
         array_push($this->cards, $randomGenerator);
         $this->totalValue = array_sum($this->cards);
 
-        if ($this->totalValue > 21) {
-            echo 'You lost. Try again';
+        if ($_SESSION['player']->totalValue > 21) {
+            echo "You lost. Loser. </br>";
             $this->gameOver();
             unset($_SESSION['totalValue']);
             unset($_SESSION['player']);
@@ -33,7 +33,7 @@ class Blackjack
 
     function stand()
     {
-        echo "You stopped drawing. Your score is <b>" . $this->totalValue . "</b> Good luck";
+        echo "You stopped drawing. Your score is <b>" . $this->totalValue . "</b> Good luck</br>";
         $this->gameOver();
     }
 
@@ -44,6 +44,7 @@ class Blackjack
 
     function gameOver()
     {
+
         $this->enable = "disabled";
 
     }

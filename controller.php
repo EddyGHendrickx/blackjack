@@ -17,9 +17,7 @@ if (!(isset($_POST['submit']))) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-//    if (!(isset($_POST['submit']))) {
-//        $_POST['submit'] = "";
-//    }
+
     // HIT ME
     if ($_POST['submit'] == 0) {
         if (!isset($_SESSION['player'])) {
@@ -46,8 +44,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $dealer->hit();
         } while ($dealer->totalValue < $player->totalValue);
+        if ($dealer->totalValue <= 21) {
+            echo "Alas, the dealer won</br>";
+        } else {
+            echo "You won, congratz!</br>";
+        }
 
-        
 
         // SURRENDER
     } else if ($_POST['submit'] == 2) {
@@ -59,7 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $player = new Blackjack();
             $_SESSION['player'] = $player;
         }
-//        unset($_SESSION['player']);
     }
 
 } else {
