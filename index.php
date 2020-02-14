@@ -8,13 +8,14 @@ require 'controller.php';
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>BLACKJACK BABY</title>
 
-    <?php foreach ($player->cards as $card): ?>
-        <div>
-            <p><?php echo $card ?></p>
+    <?php for ($i = 0; count($player->cards) > $i; $i++): ?>
+        <div id="pCard<?php echo $i ?>">
+            <p><?php echo $player->cards[$i]; ?></p>
         </div>
-    <?php endforeach; ?>
+    <?php endfor; ?>
     <div>
         <p><strong> <?php echo $player->totalValue; ?></strong></p>
     </div>
@@ -26,13 +27,14 @@ require 'controller.php';
         $dealer = [];
     } else {
 
-        foreach ($dealer->cards as $card): ?>
-            <div>
-                <p><?php echo $card ?></p>
-            </div>
-        <?php endforeach; ?>
+    for ($i = 0; count($dealer->cards) > $i; $i++): ?>
+        <div id="dCard<?php echo $i ?>">
+            <p><?php echo $dealer->cards[$i]; ?></p>
+        </div>
+    <?php endfor; ?>
     <div>
-        <p><strong> <?php echo $dealer->totalValue; } ?></strong></p>
+        <p><strong> <?php echo $dealer->totalValue;
+                } ?></strong></p>
     </div>
 
     <form method='post'>
