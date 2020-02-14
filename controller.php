@@ -7,8 +7,6 @@ require 'Blackjack.php';
 session_start();
 
 
-var_dump($player ?? "nuttin");
-
 
 if (!(isset($_POST['submit']))) {
     $_POST['submit'] = "";
@@ -44,10 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $dealer->hit();
         } while ($dealer->totalValue < $player->totalValue);
+
         if ($dealer->totalValue <= 21) {
-            echo "Alas, the dealer won</br>";
+            $player->endOfGameMessage = "Alas, the dealer won";
         } else {
-            echo "You won, congratz!</br>";
+            $player->endOfGameMessage = "You won, congratz!";
         }
 
 

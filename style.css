@@ -1,0 +1,106 @@
+
+p {
+    text-align: center;
+    color: white;
+}
+
+img {
+    width: 50px;
+    height: 100px;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: 100px 50px 100px 20px;
+    grid-template-areas:
+    "pCard0 pCard1 pCard2 pCard3 pCard4"
+    "adm adm pTotal eogm eogm"
+    "dCard0 dCard1 dCard2 dCard3 dCard4"
+    ". . dTotal . .";
+
+    grid-row-gap: 2em;
+    grid-column-gap: 2em;
+    background-color: darkgreen;
+    justify-content: center;
+    padding: 1em;
+    margin-right: 20em;
+    margin-left: 20em;
+}
+
+#pCard0 {
+    border: 1px solid black;
+    border-radius: 10px;
+    grid-area: pCard0;
+
+}
+#pCard1 {
+    grid-area: pCard1;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+#pCard2 {
+    grid-area: pCard2;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+#pCard3 {
+    grid-area: pCard3;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+#pCard4 {
+    grid-area: pCard4;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#pTotal {
+    grid-area: pTotal;
+    border: 1px solid yellow;
+}
+
+#endOfGameMessage {
+    grid-area: eogm;
+}
+
+#awaitingDealerMessage{
+    grid-area: adm;
+}
+
+#dCard0 {
+    grid-area: dCard0;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+#dCard1 {
+    grid-area: dCard1;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+#dCard2 {
+    grid-area: dCard2;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+#dCard3 {
+    grid-area: dCard3;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+#dCard4 {
+    grid-area: dCard4;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+#dTotal {
+    grid-area: dTotal;
+    border: 1px solid white;
+}
+
+#form {
+    display: flex;
+    justify-content: center;
+}
+

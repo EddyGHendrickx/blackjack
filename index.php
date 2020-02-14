@@ -10,17 +10,30 @@ require 'controller.php';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <title>BLACKJACK BABY</title>
+</head>
+<body>
+
+
+<div id="container">
 
     <?php for ($i = 0; count($player->cards) > $i; $i++): ?>
-        <div id="pCard<?php echo $i ?>">
-            <p><?php echo $player->cards[$i]; ?></p>
+        <div id="pCard<?php echo $i ?>" class="cards">
+
+            <img src="image/<?php echo $player->cards[$i] ?>H.png" alt="">
         </div>
     <?php endfor; ?>
-    <div>
-        <p><strong> <?php echo $player->totalValue; ?></strong></p>
+
+    <div id="pTotal">
+        <strong> <?php echo $player->totalValue; ?></strong>
     </div>
 
-    <p>-----------------------------------------------------------</p>
+    <div id="endOfGameMessage">
+        <strong><?php echo $player->endOfGameMessage; ?></strong>
+    </div>
+
+    <div id="awaitingDealerMessage">
+        <strong> <?php echo $player->awaitingDealerMessage; ?> </strong>
+    </div>
     <?php
 
     if (!isset($dealer)) {
@@ -28,22 +41,25 @@ require 'controller.php';
     } else {
 
     for ($i = 0; count($dealer->cards) > $i; $i++): ?>
-        <div id="dCard<?php echo $i ?>">
-            <p><?php echo $dealer->cards[$i]; ?></p>
+        <div id="dCard<?php echo $i ?>" class="cards">
+            <img src="image/<?php echo $dealer->cards[$i] ?>C.png" alt="">
         </div>
     <?php endfor; ?>
-    <div>
-        <p><strong> <?php echo $dealer->totalValue;
-                } ?></strong></p>
-    </div>
+    <div id="dTotal">
 
-    <form method='post'>
-        <button name='submit' value='0'<?php echo $player->enable ?? ""; ?>>HIT ME</button>
-        <button name='submit' value='1'<?php echo $player->enable ?? ""; ?>>STAND</button>
-        <button name='submit' value='2'>NEW GAME</button>
-    </form>
-</head>
-<body>
+        <strong>
+            <?php echo $dealer->totalValue;
+            } ?>
+        </strong>
+
+    </div>
+</div>
+</br></br></br>
+<form method='post' id="form">
+    <button name='submit' value='0'<?php echo $player->enable ?? ""; ?>>HIT ME</button>
+    <button name='submit' value='1'<?php echo $player->enable ?? ""; ?>>STAND</button>
+    <button name='submit' value='2'>NEW GAME</button>
+</form>
 
 </body>
 </html>

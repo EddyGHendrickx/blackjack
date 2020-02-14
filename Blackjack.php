@@ -4,6 +4,8 @@ class Blackjack
     public $totalValue = 0;
     public $cards = [];
     public $enable = "";
+    public $endOfGameMessage = "";
+    public $awaitingDealerMessage = "";
 
     function __construct()
     {
@@ -21,7 +23,7 @@ class Blackjack
         $this->totalValue = array_sum($this->cards);
 
         if ($_SESSION['player']->totalValue > 21) {
-            echo "You lost. Loser. </br>";
+            $this->endOfGameMessage = "You busted. Loser.";
             $this->gameOver();
             unset($_SESSION['totalValue']);
             unset($_SESSION['player']);
@@ -33,7 +35,7 @@ class Blackjack
 
     function stand()
     {
-        echo "You stopped drawing. Your score is <b>" . $this->totalValue . "</b> Good luck</br>";
+        $this->awaitingDealerMessage = "Dealers Turn. Your score is <b>" . $this->totalValue . "</b>";
         $this->gameOver();
     }
 
