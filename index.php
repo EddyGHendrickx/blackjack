@@ -19,7 +19,17 @@ require 'controller.php';
     <?php for ($i = 0; count($player->cards) > $i; $i++): ?>
         <div id="pCard<?php echo $i ?>" class="cards">
 
-            <img src="image/<?php echo $player->cards[$i] ?>H.png" alt="">
+            <img src="image/<?php
+
+            if ($player->cards[$i] == 1 || $player->cards[$i] == 11){
+                echo "A";
+            } elseif ($player->cards[$i] == 10){
+                echo "Q";
+            } else {
+                echo $player->cards[$i];
+            }
+
+            ?>H.png" alt="">
         </div>
     <?php endfor; ?>
 
@@ -42,7 +52,18 @@ require 'controller.php';
 
     for ($i = 0; count($dealer->cards) > $i; $i++): ?>
         <div id="dCard<?php echo $i ?>" class="cards">
-            <img src="image/<?php echo $dealer->cards[$i] ?>C.png" alt="">
+
+            <img src="image/<?php
+
+            if ($dealer->cards[$i] == 1 || $dealer->cards[$i] == 11){
+                echo "A";
+            } elseif ($dealer->cards[$i] == 10){
+                echo "Q";
+            } else {
+                echo $dealer->cards[$i];
+            }
+
+            ?>S.png" alt="">
         </div>
     <?php endfor; ?>
     <div id="dTotal">
