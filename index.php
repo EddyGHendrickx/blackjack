@@ -29,7 +29,7 @@ require 'controller.php';
                 echo $player->cards[$i];
             }
 
-            ?>H.png" alt="">
+           ?>H.png" alt="">
         </div>
     <?php endfor; ?>
 
@@ -55,9 +55,9 @@ require 'controller.php';
 
             <img src="image/<?php
 
-            if ($dealer->cards[$i] == 1 || $dealer->cards[$i] == 11){
+            if ($dealer->cards[$i] == 1 || $dealer->cards[$i] == 11) {
                 echo "A";
-            } elseif ($dealer->cards[$i] == 10){
+            } elseif ($dealer->cards[$i] == 10) {
                 echo "Q";
             } else {
                 echo $dealer->cards[$i];

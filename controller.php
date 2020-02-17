@@ -12,6 +12,7 @@ if (!(isset($_POST['submit']))) {
     $_POST['submit'] = "";
 }
 
+$suits = ["H", "C", "S", "D"];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $_SESSION['player']->stand();
-
+        // Dealer only has to be initiated if player presses stand.
         $dealer = new Blackjack();
         do {
 
